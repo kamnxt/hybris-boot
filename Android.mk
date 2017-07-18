@@ -44,7 +44,8 @@ HYBRIS_FIXUP_MOUNTS := $(shell ls -1 $(LOCAL_PATH)/../fixup-mountpoints $(LOCAL_
 # in AOSP we could use TARGET_VENDOR
 # TARGET_VENDOR := $(shell echo $(PRODUCT_MANUFACTURER) | tr '[:upper:]' '[:lower:]')
 # but Cyanogenmod seems to use device/*/$(TARGET_DEVICE) in config.mk so we will too.
-HYBRIS_FSTABS := $(shell find device/*/$(TARGET_DEVICE) -name *fstab* | grep -v goldfish)
+#HYBRIS_FSTABS := $(shell find device/*/$(TARGET_DEVICE) -name *fstab* | grep -v goldfish)
+HYBRIS_FSTABS := $(shell find device/*/* -name *fstab*)
 # If fstab files were not found from primary device repo then they might be in
 # some other device repo so try to search for them first in device/PRODUCT_MANUFACTURER. 
 # In many cases PRODUCT_MANUFACTURER is the short vendor name used in folder names.
